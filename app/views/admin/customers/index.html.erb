@@ -1,0 +1,36 @@
+    <%= search_form_for [:admin, @q] do |f| %>
+        <div class="row">
+        <div class="col-md-8">
+            <%= f.search_field :email_or_phone_cont, class: "form-control" %>
+        </div>
+        <div class="col-md-4">
+            <%= f.submit  "Filter", class: "btn btn-primary" %>
+        </div></div>
+
+            <% end %>
+            <br />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Email</td>
+                    <td>Phone</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @customers.each do |customer| %>
+                    <tr>
+                        <td><%=customer.email %></td>
+                        <td><%= customer.phone %></td>
+                    </tr>
+    
+                <% end %>
+            </tbody>
+        </table>   
+    </div>
+    </div>
+    <nav aria-label="Page navigation example">
+
+<%= will_paginate @customers %>
+</nav>

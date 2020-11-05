@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="pricing-card p-3 text-center py-5 mt-2">
+                <div class="images payment_ok">
+                    <img src="/images/ok.svg" width="80">
+                </div>
+                <div class="h5 mt-2">
+                    You paid <%= @data[:payment_gross]%> <%= @data[:mc_currency]%>
+                </div>
+
+                <div class="h6 mt-4">
+                    Your Premuim Account number
+                </div>
+                <div class="h3 mt-2">
+                    <%= @account.acc_id %>
+                </div>
+
+                <hr />
+                <p class="text-center">
+                    We have sent Account details to:
+                </p>
+                <p class="text-center">
+                    <%= @account.customer.email %>
+                </p>   
+            </div>
+        </div>
+        
+    </div>
+</div>
