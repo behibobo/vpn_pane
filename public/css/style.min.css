@@ -9274,5 +9274,7 @@ footer a:hover {
   }
 
   .single_plan {
-      background: url('../images/gdpr.jpg') repeat;
+      background: url('../images/gdpr.jpg');
+      background-size: cover;
+      height: 100vh;
   }

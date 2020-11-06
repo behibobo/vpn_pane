@@ -16,6 +16,7 @@
                 <tr>
                     <td>Email</td>
                     <td>Phone</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,9 @@
                     <tr>
                         <td><%=customer.email %></td>
                         <td><%= customer.phone %></td>
+                        <td>
+                            <%= link_to "show", admin_customer_path(customer), class: "btn btn-primary" %>
+                        </td>
                     </tr>
     
                 <% end %>

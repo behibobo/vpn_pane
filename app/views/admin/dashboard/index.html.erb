@@ -1,7 +1,12 @@
 <div class="row">
+        <div class="col-md-6 p-1">
+          <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+        <div class="col-md-6 p-1">
+<div class="row">
 
       <!-- Grid column -->
-      <div class="col-6 p-1">
+      <div class="col-12 p-1">
 
         <div class="card grey lighten-2">
           <div class="card-body pb-0">
@@ -23,7 +28,7 @@
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-6 p-1">
+      <div class="col-12 p-1">
 
         <div class="card grey lighten-3">
           <div class="card-body pb-0">
@@ -44,16 +49,16 @@
       </div>
       <!-- Grid column -->
 
-    </div>
+    </div>        </div>
+
+</div>
+
     <!-- Grid row -->
 
    
 <div class="row mt-5">
-    <div class="col-md-6">
-        <canvas id="myChart" width="400" height="300"></canvas>
-    </div>
-    <div class="col-md-6">
-        <canvas id="lastDays" width="400" height="300"></canvas>
+    <div class="col">
+        <canvas id="lastDays" height="120"></canvas>
     </div>
 </div>
 
@@ -61,7 +66,7 @@
   <div class="col-md-12">
     <div class="h5 text-center py-5">Today's Purchases</div>
 
-<table class="table table-striped table-sm">
+<table class="table table-striped table-bordered">
         <thead class="thead-light">
                 <tr class="bg-info">
                     <th>Customer</th>
@@ -98,7 +103,7 @@ new Chart(document.getElementById("lastDays"), {
     labels: <%= raw @last_days.map {|d| d.first.strftime("%F") }.to_a %>,
     datasets: [{ 
         data: <%= raw @last_days.map {|d| d.last }.to_a%>,
-        label: "Africa",
+        label: "Accounts",
         borderColor: "#3e95cd",
         fill: false
       }
@@ -107,7 +112,7 @@ new Chart(document.getElementById("lastDays"), {
   options: {
     title: {
       display: true,
-      text: 'World population per region (in millions)'
+      text: 'Number of Accounts per day (last 30 days)'
     }
   }
 });
@@ -126,7 +131,7 @@ new Chart(document.getElementById("myChart"), {
     options: {
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Plan Purchased'
       }
     }
 });
