@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_211026) do
+ActiveRecord::Schema.define(version: 2020_11_10_094458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_11_04_211026) do
     t.string "name"
     t.integer "interval"
     t.decimal "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "country"
+    t.string "flag"
+    t.string "ip"
+    t.string "username"
+    t.string "password"
+    t.boolean "premium", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

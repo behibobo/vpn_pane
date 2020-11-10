@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :plans
+    resources :servers
     get 'dashboard', to: "dashboard#index"
     resources :customers, only: [:index, :show]
     resources :accounts, only: [:index, :show]
