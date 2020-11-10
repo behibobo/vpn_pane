@@ -11,4 +11,9 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show]
     resources :accounts, only: [:index, :show]
   end
+
+  namespace :api do
+    get 'servers', to: "api#servers"
+  end
+
 end
