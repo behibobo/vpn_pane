@@ -8,7 +8,7 @@ class Api::ApiController < ApplicationController
                 data.push(
                     {
                         region: r.region,
-                        servers:servers
+                        servers: ActiveModel::SerializableResource.new(servers)
                     })
             end
         end
