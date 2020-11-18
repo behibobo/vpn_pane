@@ -25,7 +25,6 @@ class Admin::ServersController < AdminController
   # POST /servers.json
   def create
     @server = Server.new(server_params)
-
     respond_to do |format|
       if @server.save
         format.html { redirect_to [:admin, @server], notice: 'Server was successfully created.' }
@@ -69,6 +68,6 @@ class Admin::ServersController < AdminController
 
     # Only allow a list of trusted parameters through.
     def server_params
-      params.require(:server).permit(:country, :flag, :ip, :username, :password, :premium)
+      params.require(:server).permit(:country_id, :ip, :username, :password, :premium)
     end
 end

@@ -12,13 +12,16 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :country %>
-    <%= form.text_field :country, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :flag %>
-    <%= form.file_field :flag %>
+  <%= form.label :country_id %>
+  <select class="form-control" name="server[country_id]">
+      <% Country.all.group_by(&:region).each do |region, countries| %>
+        <optgroup label="<%= region %>">
+        <% countries.each do |country| %>
+          <option value="<%=country.id%>"><%= country.name %></option>
+      <% end %>
+      </optgroup>
+    <% end %>
+  </select>
   </div>
 
   <div class="form-group">

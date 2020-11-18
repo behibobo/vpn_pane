@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2020_11_10_094458) do
     t.index ["plan_id"], name: "index_accounts_on_plan_id"
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "region"
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email"
     t.string "phone"
@@ -41,16 +49,17 @@ ActiveRecord::Schema.define(version: 2020_11_10_094458) do
   end
 
   create_table "servers", force: :cascade do |t|
-    t.string "country"
-    t.string "flag"
+    t.bigint "country_id", null: false
     t.string "ip"
     t.string "username"
     t.string "password"
     t.boolean "premium", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_servers_on_country_id"
   end
 
   add_foreign_key "accounts", "customers"
   add_foreign_key "accounts", "plans"
+  add_foreign_key "servers", "countries"
 end

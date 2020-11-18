@@ -1,3 +1,3 @@
 class Server < ApplicationRecord
-    mount_uploader :flag, FlagUploader
+    belongs_to :country
 end

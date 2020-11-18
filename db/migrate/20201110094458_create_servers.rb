@@ -1,8 +1,7 @@
 class CreateServers < ActiveRecord::Migration[6.0]
   def change
     create_table :servers do |t|
-      t.string :country
-      t.string :flag
+      t.references :country, null: false, foreign_key: true
       t.string :ip
       t.string :username
       t.string :password
