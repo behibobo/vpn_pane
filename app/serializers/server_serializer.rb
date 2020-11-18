@@ -10,6 +10,6 @@ class ServerSerializer < ActiveModel::Serializer
   end
 
   def flag
-    "www.countryflags.io/#{object.country.code}/shiny/64.png"
+    "http://countryflags.io/#{object.country.code}/shiny/64.png"
   end
 end
