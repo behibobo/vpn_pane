@@ -1,13 +1,13 @@
 class Admin::DashboardController < AdminController
     def index
-        # uri = URI.parse("https://restcountries.eu/rest/v2/all")
+        uri = URI.parse("https://restcountries.eu/rest/v2/all")
 
-        # response = Net::HTTP.get_response(uri)
-        # hash = JSON.parse(response.body)
-        # Country.destroy_all
-        # hash.each do |c|
-        #     Country.create(name: c["name"], region: c["region"], code: c["alpha2Code"])
-        # end
+        response = Net::HTTP.get_response(uri)
+        hash = JSON.parse(response.body)
+        Country.destroy_all
+        hash.each do |c|
+            Country.create(name: c["name"], region: c["region"], code: c["alpha2Code"])
+        end
 
         plans = Plan.order(:interval)
         @data = []
