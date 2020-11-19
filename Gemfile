@@ -35,6 +35,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'will_paginate-bootstrap4'
 gem 'carrierwave', '~> 2.0'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'rqrcode'
 
 
 

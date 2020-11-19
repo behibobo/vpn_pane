@@ -19,6 +19,7 @@
                     <td>AccId</td>
                     <td>Purchased Date</td>
                     <td>Due Date</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
                         <td><%= account.acc_id %></td>
                         <td><%= account.created_at.strftime("%F") %></td>
                         <td><%= account.due_date.strftime("%F") %></td>
+                        <td><a href="/admin/accounts/<%=account.id%>" class="btn btn-primary">details</a></td>
                     </tr>
     
                 <% end %>

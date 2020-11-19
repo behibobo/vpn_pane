@@ -15,4 +15,17 @@ class Account < ApplicationRecord
       return self.created_at + 12.month
     end
   end
+
+
+  def qrcode
+    qr = RQRCode::QRCode.new(self.acc_id)
+    svg = qr.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6,
+      standalone: true
+    )
+    svg
+  end
 end

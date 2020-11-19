@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'servers', to: "api#servers"
+    post 'auth', to: "api#auth"
   end
 
 end

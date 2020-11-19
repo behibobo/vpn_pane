@@ -15,4 +15,20 @@ class Api::ApiController < ApplicationController
 
         render json: data.to_json
     end
+
+
+    def auth
+        if params[:token]
+            acc = Account.find_by(acc_id: params[:token])
+            if acc.nil?
+                render json: false
+                return
+            end
+            render json: acc
+            return
+        else
+            render json: false
+            return
+        end
+    end
 end
