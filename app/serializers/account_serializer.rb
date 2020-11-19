@@ -1,5 +1,5 @@
 class AccountSerializer < ActiveModel::Serializer
-  attributes :id, :plan, :customer, :remaing_days
+  attributes :id, :plan, :customer, :remaining_days
 
   def plan
     object.plan.name
@@ -9,7 +9,7 @@ class AccountSerializer < ActiveModel::Serializer
     object.customer.email
   end
 
-  def remaing_days
+  def remaining_days
     (object.due_date.to_date - Date.today).to_i
   end
 end
