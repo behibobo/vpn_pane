@@ -21,13 +21,13 @@ class Api::ApiController < ApplicationController
         if params[:token]
             acc = Account.find_by(acc_id: params[:token])
             if acc.nil?
-                render json: false
+                render json: { result: false, data: nil }, status: 401
                 return
             end
-            render json: acc
+            render json: {result: true, data: ActiveModel::SerializableResource.new(acc) }
             return
         else
-            render json: false
+            render json: { result: false, data: nil }, status: 401
             return
         end
     end
