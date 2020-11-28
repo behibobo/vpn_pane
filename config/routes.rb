@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'servers', to: "api#servers"
+    post 'connect', to: "api#connect"
+    post 'disconnect', to: "api#disconnect"
     post 'auth', to: "api#auth"
   end
 

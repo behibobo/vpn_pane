@@ -31,4 +31,21 @@ class Api::ApiController < ApplicationController
             return
         end
     end
+
+
+    def connect
+        con = Connection.new
+        con.server_id = params[:server_id]
+        con.account_id = params[:account_id]
+        con.serial_number = params[:serial_number]
+        con.ip = params[:ip]
+        con.save!
+        render json: true, status: 201
+    end
+
+    def disconnect
+        con = Connection.find_by(serial_number: params[:serial_number])
+        con.destroy unless con.nil?
+        render json: true, status: 200
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_094458) do
+ActiveRecord::Schema.define(version: 2020_11_28_200416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2020_11_10_094458) do
     t.string "acc_id"
     t.index ["customer_id"], name: "index_accounts_on_customer_id"
     t.index ["plan_id"], name: "index_accounts_on_plan_id"
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.bigint "server_id", null: false
+    t.string "ip"
+    t.string "serial_number"
+    t.bigint "account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_connections_on_account_id"
+    t.index ["server_id"], name: "index_connections_on_server_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -61,5 +72,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_094458) do
 
   add_foreign_key "accounts", "customers"
   add_foreign_key "accounts", "plans"
+  add_foreign_key "connections", "accounts"
+  add_foreign_key "connections", "servers"
   add_foreign_key "servers", "countries"
 end
