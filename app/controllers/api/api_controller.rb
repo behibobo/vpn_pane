@@ -3,7 +3,7 @@ class Api::ApiController < ApplicationController
         regions = Country.select(:region).distinct
         data = []
         selected = Server.all.sample
-        s = { country: "AutoConnect", ip: selected.ip, region: "", premium: true, username: selected.username, password: selected.password }
+        s = [{ country: "AutoConnect", ip: selected.ip, region: "", premium: true, username: selected.username, password: selected.password }]
 
         data.push(
                     {
