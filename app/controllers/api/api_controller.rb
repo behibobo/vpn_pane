@@ -2,8 +2,18 @@ class Api::ApiController < ApplicationController
     def servers
         regions = Country.select(:region).distinct
         data = []
+        selected = Server.all.sample
+        s = { country: "AutoConnect", ip: selected.ip, region: "", premium: true, username: selected.username, password: selected.password }
+
+        data.push(
+                    {
+                        region: "",
+                        servers: s
+                    })
+
         regions.each do |r|
             servers = Server.joins(:country).where(countries: { region: r.region })
+            
             if servers.any? 
                 data.push(
                     {
