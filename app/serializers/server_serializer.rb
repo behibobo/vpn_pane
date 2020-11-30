@@ -1,5 +1,5 @@
 class ServerSerializer < ActiveModel::Serializer
-  attributes :id, :ip, :country, :region, :username, :password, :premium, :flag, :name
+  attributes :id, :ip, :country, :region, :username, :password, :premium, :flag, :name, :ping
 
   def region
     object.country.region

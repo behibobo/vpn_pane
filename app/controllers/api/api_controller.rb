@@ -2,9 +2,9 @@ class Api::ApiController < ApplicationController
     def servers
         regions = Country.select(:region).distinct
         data = []
-        selected = Server.all.sample
+        selected = Server.all.order(ping: :asc).first
         s = [{ country: selected.country.name, name: "AutoSelect", ip: selected.ip, region: "", 
-        premium: true, username: selected.username, password: selected.password, flag: "http://vpn.coding-lodge.com/performance.png" }]
+        premium: true, username: selected.username, password: selected.password, flag: "http://vpn.coding-lodge.com/performance.png", ping: selected.ping }]
 
         data.push(
                     {

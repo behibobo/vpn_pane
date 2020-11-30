@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'New Server', new_admin_server_path, class: "btn btn-primary" %>
+<%= link_to 'Ping all Servers', admin_ping_servers_path, class: "btn btn-info" %>
 <div class="row mt-2">
 
   <% @servers.each do |server| %>
@@ -8,7 +9,7 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-5 col-md-5">
+          <div class="col-6 col-md-6">
             <div class="wrapper border-bottom mb-2 mt-3 pb-2">
               <h5 class="font-weight-semibold mb-0"><%= server.connections.count %></h5>
               <div class="align-items-center">
@@ -22,7 +23,7 @@
               </div>
             </div>
           </div>
-          <div class="col-5 col-md-5">
+          <div class="col-6 col-md-6">
             <div class="wrapper mb-0 mt-0">
               <img src="http://countryflags.io/<%=server.country.code%>/shiny/64.png" width="70" />
             </div>
@@ -32,6 +33,17 @@
               <p class="mb-0 font-weight-semibold"><%=server.password%></p>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+            <div class="col-6 col-md-6">
+            
+              <%= link_to 'Edit', edit_admin_server_path(server), class: "btn btn-success" %>
+            </div>
+            <div class="col-6 col-md-6">
+                premium: <input type="checkbox" <% if server.premium == true %> checked <%end%>>
+            </div>
         </div>
       </div>
     </div>

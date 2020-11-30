@@ -21,6 +21,13 @@ class Admin::ServersController < AdminController
   def edit
   end
 
+  def ping
+    Server.all.each do |server|
+      server.reping
+    end
+    redirect_to admin_servers_path
+  end
+
   # POST /servers
   # POST /servers.json
   def create

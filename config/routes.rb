@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :plans
     resources :servers
+    get 'ping_servers', to: "servers#ping"
     get 'dashboard', to: "dashboard#index"
     resources :customers, only: [:index, :show]
     resources :accounts, only: [:index, :show]
