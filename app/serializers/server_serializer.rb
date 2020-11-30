@@ -1,5 +1,5 @@
 class ServerSerializer < ActiveModel::Serializer
-  attributes :id, :ip, :country, :region, :username, :password, :premium, :flag
+  attributes :id, :ip, :country, :region, :username, :password, :premium, :flag, :name
 
   def region
     object.country.region
@@ -11,5 +11,9 @@ class ServerSerializer < ActiveModel::Serializer
 
   def flag
     "http://countryflags.io/#{object.country.code}/shiny/64.png"
+  end
+
+  def name
+    object.country.name
   end
 end
